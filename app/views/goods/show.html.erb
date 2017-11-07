@@ -1,0 +1,22 @@
+<p>
+  <strong>Product:</strong>
+  <%= @good.product %>
+</p>
+
+<p>
+  <strong>Shelf Life:</strong>
+  <%= @good.shelfLife %>
+</p>
+
+<p>
+  <strong>Purchase Date:</strong>
+  <%= @good.purchaseDate %>
+</p>
+
+<p>
+  <strong>Expiration Date:</strong>
+  <%= @good.expirationDate %>
+</p>
+
+<%= link_to 'Edit', edit_good_path(@good) %> |
+<%= link_to 'Back', goods_path %>

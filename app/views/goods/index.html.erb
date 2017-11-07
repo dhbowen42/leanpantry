@@ -1,0 +1,23 @@
+<h1>Pantry Contents</h1>
+
+<table>
+  <tr>
+    <th>Good</th>
+    <th>Purchased</th>
+    <th>Expires</th>
+  </tr>
+
+  <% @goods.each do |good| %>
+      <tr>
+        <td><%= good.product %></td>
+        <td><%= good.purchaseDate %></td>
+        <td><%= good.expirationDate %></td>
+        <td><%= link_to 'Show', good_path(good) %></td>
+        <td><%= link_to 'Edit', edit_good_path(good) %></td>
+        <td><%= link_to 'Delete', good_path(good),
+                        method: :delete,
+                        data: { confirm: 'Are you sure?' } %></td>      </tr>
+  <% end %>
+</table>
+
+<%= link_to 'New good', new_good_path %>

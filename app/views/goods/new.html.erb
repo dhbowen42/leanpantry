@@ -1,17 +1,7 @@
 <h1>New Good</h1>
 
-<%= form_with scope: :good, url: goods_path, local: true do |form| %>
-  <p>
-    <%= form.label :type %><br>
-    <%= form.text_field :type %>
-  </p>
- 
-  <p>
-    <%= form.label :length %><br>
-    <%= form.text_field :length %>
-  </p>
- 
-  <p>
-    <%= form.submit %>
-  </p>
-<% end %>
+<%= render 'form' %>
+
+<%= link_to 'Back', goods_path %>
+
+
