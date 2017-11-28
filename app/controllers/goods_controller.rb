@@ -3,7 +3,7 @@ require 'date'
 class GoodsController < ApplicationController
 
 	def index
-		@goods = Good.all
+		@goods = Good.all.order(:expirationDate)
 	end
 
 	def show
@@ -25,7 +25,7 @@ class GoodsController < ApplicationController
 		@good.expirationDate= @good.purchaseDate + @good.shelfLife
 
 		if @good.save
-			redirect_to @good
+			redirect_to goods_index_path
 		else
 			render 'new'
 		end
@@ -35,7 +35,7 @@ class GoodsController < ApplicationController
 		@good = Good.find(params[:id])
 
 		if @good.update(good_params)
-			redirect_to @good
+			redirect_to goods_index_path
 		else
 			render 'edit'
 		end
@@ -46,6 +46,14 @@ class GoodsController < ApplicationController
 		@good.destroy
 
 		redirect_to goods_path
+	end
+
+	def threedays
+		@goods = Good.where("expirationDate < ?", Date.today + 3).order(:expirationDate)
+	end
+
+	def week
+		@goods = Good.where("expirationDate < ?", Date.today + 7).order(:expirationDate)
 	end
 
 	private

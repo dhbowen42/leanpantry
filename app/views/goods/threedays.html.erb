@@ -1,5 +1,5 @@
-<h1>All Groceries</h1>
-<%= link_to '-', goods_week_path %> <%= '+'%>
+<h1>What's expiring in the next 3 days?</h1>
+<%= '-' %> <%= link_to '+', goods_week_path %>
 
 <table>
   <tr>
@@ -11,8 +11,8 @@
       <tr>
         <td><%= link_to good.product, good_path(good) %></td>
         <td><%= good.expirationDate.strftime("%A, %B %d") %></td>
-        <td><%= link_to 'X', good_path(good),
-                        method: :delete %></td>      </tr>
+        <td><%= link_to 'X', good_path(good), method: :delete %>
+        </td>      </tr>
   <% end %>
 </table>
 
